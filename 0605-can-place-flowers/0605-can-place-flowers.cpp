@@ -13,6 +13,8 @@ public:
                 fb[i] = 1;
                 count++;
             }
+                if(count>= n)
+                    return true;
         }
         }
         return count>=n;
