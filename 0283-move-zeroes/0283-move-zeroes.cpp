@@ -9,7 +9,7 @@ public:
                 nums[j++] = nums[i];
             }
         }
-        for(int i = j; i<n;i++)
+        while(j<n)
         {
             nums[j++] = 0;
         }
