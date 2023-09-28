@@ -1,7 +1,7 @@
 class RecentCounter {
 public:
     RecentCounter() {}
-    
+    queue<int> q;
     int ping(int t) {
        
         q.push(t);
@@ -9,8 +9,8 @@ public:
             q.pop();
         return q.size();
     }
-    private:
-     queue<int> q;
+
+     
 };
 
 /**
