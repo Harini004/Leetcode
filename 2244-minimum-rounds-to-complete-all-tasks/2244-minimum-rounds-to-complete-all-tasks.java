@@ -16,11 +16,10 @@ class Solution {
             }
         }
          
-        for(Map.Entry<Integer,Integer> en : hm.entrySet())
+        for(int temp: hm.values())
           
         {
-           System.out.println(en.getValue());
-            int temp = en.getValue();
+         
             if(temp ==1)
                 return -1; 
            c += (temp+2) /3;
