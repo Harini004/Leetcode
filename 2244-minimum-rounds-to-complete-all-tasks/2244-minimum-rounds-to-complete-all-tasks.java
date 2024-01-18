@@ -1,7 +1,7 @@
 class Solution {
     public int minimumRounds(int[] tasks) {
         HashMap<Integer,Integer> hm = new HashMap<>();
-        int c;
+        int c=0;
         for(int i:tasks)
         {
             if(!hm.containsKey(i))
@@ -15,7 +15,6 @@ class Solution {
              
             }
         }
-  int min =0;
          
         for(Map.Entry<Integer,Integer> en : hm.entrySet())
           
@@ -24,19 +23,11 @@ class Solution {
             int temp = en.getValue();
             if(temp ==1)
                 return -1; 
-            c =0;
-                while(temp >3)
-                {
-                    c=c+1;
-                    temp = temp-3;
-                }
-            if(temp>0)
-                c=c+1;
-            min+=c;
+           c += (temp+2) /3;
                 
             
             
         }
-        return min;
+        return c;
     }
 }
