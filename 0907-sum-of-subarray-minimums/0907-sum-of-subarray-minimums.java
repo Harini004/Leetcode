@@ -27,7 +27,7 @@ class Solution {
         long ans = 0;
         for(int i=0;i<len;i++)
         {
-            ans += (long) (i-left[i]) * (right[i] - i)  * arr[i] ;
+            ans += (long) (i-left[i]) * (right[i] - i)  * arr[i] % mod;
             ans %= mod;
         }
         return (int) ans;
