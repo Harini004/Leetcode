@@ -6,4 +6,4 @@ class Solution:
             sorted_word = ''.join(sorted(c))
             count[sorted_word].append(c)
                 
-        return count.values()    
+        return list(count.values())    
