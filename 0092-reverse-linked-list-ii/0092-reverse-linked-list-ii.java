@@ -17,17 +17,17 @@ class Solution {
             curr = curr.next;
         
         }
-         
+        int it = right-left+1;
+
         ListNode newEnd =curr,last = prev; 
-         ListNode next = curr.next;
-        for(int i = 0;i<right-left+1 && curr!=null;i++)
+        
+        while(it>0 && curr!=null)
         {
-          
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
             curr  = next;
-         if(next!=null)
-             next = next.next;
+            it--;
         }
         if(last!=null)
         {
