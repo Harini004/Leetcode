@@ -17,7 +17,7 @@ public ListNode findmid(ListNode head)
 		f = f.next.next;
 		s = s.next;
 	}
-    System.out.println("mid:"+ s.val);
+
 	return s;
 }
   public ListNode reverse(ListNode mid)
@@ -32,7 +32,7 @@ public ListNode findmid(ListNode head)
             present = then;
             if(then != null)
             then = then.next;
-             System.out.println("PREV:"+ prev.val);
+           
         }
         return prev;
     }
