@@ -20,18 +20,18 @@ public ListNode findmid(ListNode head)
 
 	return s;
 }
-  public ListNode reverse(ListNode mid)
+  public ListNode reverse(ListNode head)
     {
         ListNode prev = null;
-        ListNode present = mid;
-        ListNode then = present.next;
-        while(present != null)
+        ListNode curr = head;
+        ListNode next = curr.next;
+        while(curr != null)
         {
-            present.next = prev;
-            prev = present;
-            present = then;
-            if(then != null)
-            then = then.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            if(next != null)
+            next = next.next;
            
         }
         return prev;
