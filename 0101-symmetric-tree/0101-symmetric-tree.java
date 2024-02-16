@@ -14,18 +14,26 @@
  * }
  */
 class Solution {
-    public boolean sym(TreeNode r1, TreeNode r2)
-    {
-        if(r1==null && r2== null)
-            return true;
-        if((r1!=null && r2!=null) &&(r1.val == r2.val))
-            return sym(r1.right,r2.left) && sym(r1.left,r2.right);
-        return false;
-        
-    }
     public boolean isSymmetric(TreeNode root) {
-        if(sym(root,root))
-            return true;
-        return false;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root.left);
+        q.offer(root.right);
+        while(!q.isEmpty())
+        {
+            TreeNode left = q.poll();
+            TreeNode right = q.poll();
+            if(left == null && right == null)
+                continue;
+            if(left == null || right == null)
+                return false;
+            if(left.val != right.val)
+                return false;
+            q.offer(left.left);
+            q.offer(right.right);
+            q.offer(left.right);
+            q.offer(right.left);
+    
+        }
+        return true;
     }
 }
