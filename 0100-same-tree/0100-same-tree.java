@@ -16,15 +16,10 @@
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         Queue<TreeNode> q1 = new LinkedList<>();
-        if(p==null && q==null)
-            return true;
-        else if(p==null || q==null)
-            return false;
-        if(p!=null && q!=null)
-        {
+    
             q1.offer(p);
             q1.offer(q);
-        }
+        
         while(!q1.isEmpty())
         {
             TreeNode first = q1.poll();
