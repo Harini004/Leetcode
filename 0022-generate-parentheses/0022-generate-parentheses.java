@@ -6,6 +6,7 @@ class Solution {
     }
     private void backtrack(List<String> res, StringBuilder cur, int left, int right, int n)
     {
+
         if(cur.length()==2*n)
         {
             res.add(cur.toString());
@@ -18,7 +19,7 @@ class Solution {
             backtrack(res,cur,left+1,right,n);
             cur.deleteCharAt(cur.length()-1);
         }
-         if(left>right)
+         if(right<left)
         {
             cur.append(")");
             backtrack(res,cur,left,right+1,n);
