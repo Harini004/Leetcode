@@ -9,6 +9,7 @@ class Solution {
         {
             for(int j = 0;j<c;j++)
             {
+                
                 if(search(i,j,0,board,word) && (word.charAt(0)==board[i][j]))
                     return true;
             }
