@@ -1,5 +1,5 @@
 # Write your MySQL query statement below
-select (
-select distinct salary from (
-select salary, dense_rank() over (order by salary desc) as salary_rank from Employee)
-as ranked_sal where salary_rank = 2 )as SecondHighestSalary 
+
+with highest_sal as (
+select id, salary, dense_rank() over (order by salary desc) as salary_rank from Employee)
+select (select salary from highest_sal where salary_rank = 2 limit 1 ) as SecondHighestSalary;
