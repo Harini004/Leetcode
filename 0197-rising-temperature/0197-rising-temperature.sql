@@ -1,10 +1,5 @@
 # Write your MySQL query statement below
-With previousweatherdata as (
-    select id, recorddate, temperature,
-    LAG(temperature,1) over (order by recorddate) as prevtemp,
-    LAG(recorddate, 1) over (order by recorddate) as prevdate
-    from weather
-)
-select id from previousweatherdata where temperature > prevtemp
-and recorddate = DATE_ADD(prevdate, INTERVAL 1 DAY)
+select w1.id from weather w1 join weather w2
+on w1.recorddate = DATE_ADD(w2.recorddate, INTERVAL 1 DAY) and
+w1.temperature > w2.temperature
 
