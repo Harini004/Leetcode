@@ -1,11 +1,8 @@
-WITH temp AS (
-    SELECT player_id, MIN(event_date) AS first_login_date
-    FROM Activity 
-    GROUP BY player_id
-)
-SELECT 
-    ROUND(
-        SUM(DATEDIFF(a.event_date, t.first_login_date) = 1) / COUNT(DISTINCT a.player_id), 2
-    ) AS fraction
-FROM Activity a
-JOIN temp t ON a.player_id = t.player_id;
+# Write your MySQL query statement below
+
+with activity_ranking as (
+select player_id, min(event_date) as first_date from activity group by player_id)
+select round(count(b.player_id)/count(a.player_id),2) as fraction
+from activity_ranking a left join activity b
+on a.player_id = b.player_id
+and b.event_date = a.first_date + INTERVAL 1 DAY
